@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ignacio Henriquez – Bewerbung als Entwickler</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #08080f;
+      --surface: #0f0f1c;
+      --surface2: #141425;
+      --border: rgba(255,255,255,0.07);
+      --border-accent: rgba(139,92,246,0.3);
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #475569;
+      --purple: #8b5cf6;
+      --purple-light: #a78bfa;
+      --purple-dim: rgba(139,92,246,0.12);
+      --teal: #2dd4bf;
+      --amber: #fbbf24;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 2px; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 6%;
+      background: rgba(8,8,15,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .logo {
+      font-family: 'DM Mono', monospace;
+      font-size: 15px;
+      color: var(--purple-light);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text-primary); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 6% 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 48px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 48px);
+      pointer-events: none;
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 700px;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--purple-dim);
+      border: 0.5px solid var(--border-accent);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 11px;
+      color: var(--purple-light);
+      letter-spacing: 0.06em;
+      margin-bottom: 28px;
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--purple-light);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 7vw, 72px);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      animation: fadeUp 0.8s 0.15s ease both;
+    }
+
+    .hero h1 strong { font-weight: 500; }
+
+    .hero-subtitle {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 520px;
+      line-height: 1.75;
+      margin-bottom: 36px;
+      font-weight: 300;
+      animation: fadeUp 0.8s 0.25s ease both;
+    }
+
+    /* ── BUTTONS ── */
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+      border: none;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-primary {
+      background: var(--purple);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--purple-light);
+      box-shadow: 0 8px 24px rgba(139,92,246,0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 0.5px solid rgba(255,255,255,0.15);
+    }
+
+    .btn-outline:hover {
+      border-color: rgba(255,255,255,0.3);
+      color: var(--text-primary);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--purple-light);
+      border: 0.5px solid var(--border-accent);
+    }
+
+    .btn-ghost:hover {
+      background: var(--purple-dim);
+    }
+
+    .btn-icon {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    /* ── STATS ── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 0 6% 80px;
+    }
+
+    .stat {
+      background: var(--surface);
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 72px 6%;
+    }
+
+    section:nth-child(even) {
+      background: var(--surface);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .section-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--purple-light);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--purple-dim);
+      border: 0.5px solid var(--border-accent);
+      padding: 4px 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .section-line {
+      flex: 1;
+      height: 0.5px;
+      background: var(--border);
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .about-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 12px;
+      background: var(--surface2);
+      border: 0.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 56px;
+    }
+
+    .about-text h3 {
+      font-size: 22px;
+      font-weight: 500;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+    }
+
+    .about-text p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      font-weight: 300;
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .skill-card {
+      background: var(--surface2);
+      border: 0.5px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      transition: border-color 0.2s;
+    }
+
+    .skill-card:hover { border-color: var(--border-accent); }
+
+    .skill-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .skill-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .skill-pct {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .skill-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      line-height: 1.6;
+    }
+
+    .skill-bar {
+      height: 2px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .skill-fill {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 1s ease;
+    }
+
+    /* ── TIMELINE ── */
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+      max-width: 680px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 8px;
+      bottom: 8px;
+      width: 0.5px;
+      background: linear-gradient(to bottom, var(--purple), transparent);
+    }
+
+    .tl-item {
+      position: relative;
+      margin-bottom: 32px;
+    }
+
+    .tl-item:last-child { margin-bottom: 0; }
+
+    .tl-dot {
+      position: absolute;
+      left: -22px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--purple);
+    }
+
+    .tl-dot.teal { border-color: var(--teal); }
+
+    .tl-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--purple-light);
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .tl-date.teal { color: var(--teal); }
+
+    .tl-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .tl-company {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .tl-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .project-card {
+      background: var(--surface2);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: border-color 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-3px);
+    }
+
+    .project-card.placeholder {
+      border-style: dashed;
+      opacity: 0.5;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+
+    .project-emoji { font-size: 24px; }
+
+    .project-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--purple-light);
+      text-decoration: none;
+      border: 0.5px solid var(--border-accent);
+      padding: 3px 8px;
+      border-radius: 4px;
+      transition: background 0.15s;
+    }
+
+    .project-link:hover { background: var(--purple-dim); }
+
+    .project-link.coming-soon {
+      color: var(--text-muted);
+      border-color: var(--border);
+      cursor: default;
+    }
+
+    .project-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .project-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      font-weight: 300;
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 16px;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-size: 10px;
+      font-family: 'DM Mono', monospace;
+      color: var(--purple-light);
+      background: var(--purple-dim);
+      border: 0.5px solid var(--border-accent);
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── GITHUB BANNER ── */
+    .github-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      background: var(--surface2);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .github-banner-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .github-icon {
+      width: 36px;
+      height: 36px;
+      fill: var(--text-secondary);
+    }
+
+    .github-banner-text .title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .github-banner-text .sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* ── MOTIVATION ── */
+    .motivation-card {
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--surface2);
+      border: 0.5px solid rgba(139,92,246,0.2);
+      border-radius: 14px;
+      padding: 40px 44px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .motivation-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--purple), var(--purple-light), transparent);
+    }
+
+    .motivation-card::after {
+      content: '\201C';
+      position: absolute;
+      top: -10px;
+      right: 28px;
+      font-size: 120px;
+      color: rgba(139,92,246,0.08);
+      font-family: Georgia, serif;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .motivation-greeting {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .motivation-body {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-secondary);
+      line-height: 1.9;
+    }
+
+    .motivation-body p { margin-bottom: 16px; }
+    .motivation-body p:last-child { margin-bottom: 0; }
+
+    .motivation-sig {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 0.5px solid var(--border);
+      font-size: 14px;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .motivation-sig span {
+      display: block;
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-top: 3px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 40px 6%;
+      border-top: 0.5px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: gap;
+      gap: 20px;
+    }
+
+    .footer-left .name {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .footer-left .contact {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .footer-left .contact a {
+      color: var(--purple-light);
+      text-decoration: none;
+    }
+
+    .footer-right {
+      display: flex;
+      gap: 10px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero { padding: 90px 5% 50px; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); margin: 0 5% 60px; }
+      section { padding: 56px 5%; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-photo { width: 120px; height: 120px; font-size: 36px; }
+      .motivation-card { padding: 28px 24px; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <div class="logo">{ I·H }</div>
+    <ul class="nav-links">
+      <li><a href="#about">Über mich</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projekte</a></li>
+      <li><a href="#experience">Werdegang</a></li>
+      <li><a href="#motivation">Motivation</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <header class="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <div class="badge-dot"></div>
+        Offen für neue Möglichkeiten · Allgäu, Deutschland
+      </div>
+      <h1>Ignacio<br><strong>Henriquez</strong></h1>
+      <p class="hero-subtitle">// Ing. Arbeitssicherheit · Mechaniker · Zukünftiger Entwickler</p>
+      <p class="hero-desc">
+        Problemlöser mit 10+ Jahren Erfahrung in der deutschen Arbeitswelt. Analytisches Denken aus dem Ingenieurswesen — bereit, Systeme im Code statt in der Werkstatt zu reparieren.
+      </p>
+      <div class="hero-actions">
+
+        <!-- Descarga Bildungsangebot -->
+        <a href="public/Bildungsangebot.pdf" download class="btn btn-primary">
+          <svg class="btn-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 1v9M5 7l3 3 3-3M2 12v1a1 1 0 001 1h10a1 1 0 001-1v-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Bildungsangebot
+        </a>
+
+        <!-- Descarga CV -->
+        <a href="public/CV_Ignacio_Henriquez.pdf" download class="btn btn-outline">
+          <svg class="btn-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 1v9M5 7l3 3 3-3M2 12v1a1 1 0 001 1h10a1 1 0 001-1v-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Lebenslauf (CV)
+        </a>
+
+        <!-- Scroll a motivación -->
+        <a href="#motivation" class="btn btn-ghost">Bewerbung lesen →</a>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ── STATS ── -->
+  <div class="stats-row">
+    <div class="stat">
+      <div class="stat-num">5+</div>
+      <div class="stat-label">Jahre in DE</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Sprachen</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">B.Sc.</div>
+      <div class="stat-label">Ingenieurswesen</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Lernbereit</div>
+    </div>
+  </div>
+
+  <!-- ── ABOUT ── -->
+  <section id="about">
+    <div class="section-header">
+      <span class="section-tag">01 · Über mich</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+      <!-- Reemplaza con <img src="public/foto.jpg" alt="Ignacio Henriquez"> cuando tengas la foto -->
+      <div class="about-photo">🧑‍💻</div>
+      <div class="about-text">
+        <h3>Hallo, ich bin Ignacio.</h3>
+        <p>Ich lebe seit 2018 in Deutschland und spreche fließend Spanisch, Deutsch und Englisch. Meine bisherige Laufbahn war geprägt von Vielseitigkeit, Präzision und Verantwortung — als Ingenieur, Mechaniker und in der Logistik.</p>
+        <p>Seit einiger Zeit habe ich meine Leidenschaft für Technologie entdeckt. Ich bin fasziniert davon, wie Code reale Probleme lösen kann — ähnlich wie bei mechanischen Reparaturen, aber mit unbegrenzten Möglichkeiten.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SKILLS ── -->
+  <section id="skills">
+    <div class="section-header">
+      <span class="section-tag">02 · Kompetenzen</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-top">
+          <div class="skill-name">Problemlösung & Diagnose</div>
+          <div class="skill-pct">90%</div>
+        </div>
+        <div class="skill-desc">Als Kfz-Mechaniker und Fahrradtechniker: Systeme analysieren, Fehler finden, Lösungen implementieren.</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:90%; background: linear-gradient(90deg, #7c3aed, #a78bfa);"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-top">
+          <div class="skill-name">HTML · CSS · JavaScript</div>
+          <div class="skill-pct">35%</div>
+        </div>
+        <div class="skill-desc">Grundkenntnisse im Web-Frontend. Lernender Status — wachsend durch Kurs und Praxis.</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:35%; background: linear-gradient(90deg, #0d9488, #2dd4bf);"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-top">
+          <div class="skill-name">Python</div>
+          <div class="skill-pct">30%</div>
+        </div>
+        <div class="skill-desc">Logische Strukturen, einfache Skripte. Vertraut mit analytischem Denken aus dem Ingenieurstudium.</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:30%; background: linear-gradient(90deg, #0d9488, #2dd4bf);"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-top">
+          <div class="skill-name">Sprachen</div>
+          <div class="skill-pct">75%</div>
+        </div>
+        <div class="skill-desc">Spanisch (Muttersprache), Deutsch B1, Englisch B1. Effektive Kommunikation in internationalen Teams.</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:75%; background: linear-gradient(90deg, #d97706, #fbbf24);"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-top">
+          <div class="skill-name">Sicherheitstechnik</div>
+          <div class="skill-pct">85%</div>
+        </div>
+        <div class="skill-desc">B.Sc. Arbeitssicherheit, Risikomanagement, technische Analyse — übertragbar auf Software-Qualitätssicherung.</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:85%; background: linear-gradient(90deg, #7c3aed, #a78bfa);"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-top">
+          <div class="skill-name">Technische Dokumentation</div>
+          <div class="skill-pct">80%</div>
+        </div>
+        <div class="skill-desc">Wartungsberichte, Sicherheitsprotkolle, strukturierte Dokumentation aus Ingenieurspraxis.</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:80%; background: linear-gradient(90deg, #d97706, #fbbf24);"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EXPERIENCE ── -->
+  <section id="experience">
+    <div class="section-header">
+      <span class="section-tag">03 · Berufserfahrung</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2024 – Heute</div>
+        <div class="tl-title">Fahrrad- & Scooter-Mechaniker</div>
+        <div class="tl-company">Lime · Berlin / Allgäu</div>
+        <div class="tl-desc">Technische Wartung und Fehlerdiagnose an elektronischen Komponenten. Optimierung von Wartungsprozessen und eigenverantwortliches Arbeiten im Außendienst.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2023 – 2024</div>
+        <div class="tl-title">Lift-Maschinist & Wartung</div>
+        <div class="tl-company">Schwarzenlift & Gletscheralp</div>
+        <div class="tl-desc">Verantwortung für Sicherheit und Wartung technischer Anlagen. Zuverlässiges, präzises Arbeiten unter Druck und in extremen Wetterbedingungen.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2018 – 2023</div>
+        <div class="tl-title">Logistik & Operations</div>
+        <div class="tl-company">Facturee GmbH & Flaschenpost · Berlin</div>
+        <div class="tl-desc">Effizientes Arbeiten in schnellem Umfeld, Teamfähigkeit und Deutschkenntnisse täglich in der Praxis angewendet. Integration in die deutsche Arbeitswelt.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot teal"></div>
+        <div class="tl-date teal">2010 – 2015</div>
+        <div class="tl-title">B.Sc. Arbeitssicherheit</div>
+        <div class="tl-company">Universidad Federico Santa María · Chile</div>
+        <div class="tl-desc">Ingenieurwissenschaftliches Denken, Risikomanagement und strukturierte Analyse. Vizepräsident der Studentenvereinigung — Führungs- und Organisationserfahrung.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ── -->
+  <section id="projects">
+    <div class="section-header">
+      <span class="section-tag">04 · Projekte</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- Proyecto real 1 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-emoji">🛴</div>
+          <!-- Reemplaza # con la URL real del repo cuando esté listo -->
+          <a href="#" class="project-link coming-soon">github · soon</a>
+        </div>
+        <div class="project-name">Scooter-Status Tracker</div>
+        <div class="project-desc">Skript zur Verwaltung des Reparaturstatus von E-Scootern. Inspiriert durch die Arbeit bei Lime — Wartungsprozesse als Datenstruktur gedacht.</div>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Logik</span>
+          <span class="tag">CLI</span>
+        </div>
+      </div>
+
+      <!-- Proyecto real 2 -->
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-emoji">🛡️</div>
+          <!-- Reemplaza # con la URL real del repo cuando esté listo -->
+          <a href="#" class="project-link coming-soon">github · soon</a>
+        </div>
+        <div class="project-name">Sicherheits-Checkliste Web</div>
+        <div class="project-desc">Digitale Arbeitssicherheits-Checkliste mit Web-Oberfläche. Kombination aus Ingenieurfachwissen und Frontend-Entwicklung.</div>
+        <div class="project-tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+      </div>
+
+      <!-- Placeholder para proyecto futuro -->
+      <div class="project-card placeholder">
+        <div class="project-header">
+          <div class="project-emoji">⚙️</div>
+          <span class="project-link coming-soon">coming soon</span>
+        </div>
+        <div class="project-name">Nächstes Projekt</div>
+        <div class="project-desc">Wird während des Kurses entwickelt. Raum für neue Ideen und praktische Übungen.</div>
+        <div class="project-tags">
+          <span class="tag">TBD</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- GitHub Banner -->
+    <div class="github-banner">
+      <div class="github-banner-left">
+        <svg class="github-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+        </svg>
+        <div class="github-banner-text">
+          <div class="title">Alle Projekte auf GitHub</div>
+          <!-- Reemplaza la URL con el perfil real de GitHub de Ignacio -->
+          <div class="sub">github.com/ignacio-henriquez &nbsp;·&nbsp; Wird während des Kurses befüllt</div>
+        </div>
+      </div>
+      <!-- Reemplaza href con la URL real de GitHub -->
+      <a href="https://github.com/ignacio-henriquez" target="_blank" rel="noopener" class="btn btn-ghost">
+        GitHub besuchen →
+      </a>
+    </div>
+  </section>
+
+  <!-- ── MOTIVATION ── -->
+  <section id="motivation">
+    <div class="section-header">
+      <span class="section-tag">05 · Motivationsschreiben</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="motivation-card">
+      <p class="motivation-greeting">Sehr geehrte Damen und Herren,</p>
+      <div class="motivation-body">
+        <p>Mein Weg in die Softwareentwicklung ist nicht der typische eines Informatikers — aber ich glaube, dass genau das meine Stärke ist. Meine Erfahrung als Mechaniker und Ingenieur hat mir beigebracht, wie Systeme funktionieren und wie man strukturiert Probleme löst. Ich sehe Code nicht als reinen Text, sondern als Werkzeug, um Abläufe zu optimieren — genauso wie ich es bei mechanischen Reparaturen getan habe.</p>
+        <p>Ich lebe seit mehreren Jahren in Deutschland, bin integriert und verfüge über die notwendige Disziplin, um diesen beruflichen Wechsel erfolgreich zu meistern. Die Digitalisierung fasziniert mich, und ich bin bereit, hart zu arbeiten, um von einem "Problemlöser in der Werkstatt" zu einem "Problemlöser im Code" zu werden.</p>
+        <p>Ich freue mich auf die Möglichkeit, in Ihrem Kurs meine Fähigkeiten zu erweitern und aktiv beizutragen.</p>
+      </div>
+      <div class="motivation-sig">
+        Ignacio Henriquez
+        <span>Buchenberg / Allgäu · Ignacio.Henriquezp22@gmail.com · +49 176 74231056</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-left">
+      <div class="name">Ignacio Henriquez</div>
+      <div class="contact">
+        <a href="mailto:Ignacio.Henriquezp22@gmail.com">Ignacio.Henriquezp22@gmail.com</a>
+        &nbsp;·&nbsp; +49 176 74231056 &nbsp;·&nbsp; Buchenberg, Allgäu
+      </div>
+    </div>
+    <div class="footer-right">
+      <a href="public/CV_Ignacio_Henriquez.pdf" download class="btn btn-outline" style="font-size:12px; padding:8px 16px;">↓ CV</a>
+      <a href="public/Bildungsangebot.pdf" download class="btn btn-primary" style="font-size:12px; padding:8px 16px;">↓ Bildungsangebot</a>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll para anclas
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+
+    // Nav activo al hacer scroll
+    const sections = document.querySelectorAll('section[id], header[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(l => l.style.color = '');
+          const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+          if (active) active.style.color = '#a78bfa';
+        }
+      });
+    }, { threshold: 0.4 });
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>
