@@ -25,7 +25,6 @@
     }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -36,12 +35,10 @@
       overflow-x: hidden;
     }
 
-    /* ── SCROLLBAR ── */
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 2px; }
 
-    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0;
@@ -80,7 +77,6 @@
 
     .nav-links a:hover { color: var(--text-primary); }
 
-    /* ── HERO ── */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -179,7 +175,6 @@
       animation: fadeUp 0.8s 0.25s ease both;
     }
 
-    /* ── BUTTONS ── */
     .hero-actions {
       display: flex;
       gap: 12px;
@@ -242,7 +237,6 @@
       flex-shrink: 0;
     }
 
-    /* ── STATS ── */
     .stats-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -275,7 +269,6 @@
       text-transform: uppercase;
     }
 
-    /* ── SECTIONS ── */
     section {
       padding: 72px 6%;
     }
@@ -310,7 +303,6 @@
       background: var(--border);
     }
 
-    /* ── ABOUT ── */
     .about-grid {
       display: grid;
       grid-template-columns: 200px 1fr;
@@ -345,7 +337,6 @@
       margin-bottom: 14px;
     }
 
-    /* ── SKILLS ── */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -401,7 +392,6 @@
       transition: width 1s ease;
     }
 
-    /* ── TIMELINE ── */
     .timeline {
       position: relative;
       padding-left: 24px;
@@ -468,7 +458,6 @@
       line-height: 1.7;
     }
 
-    /* ── PROJECTS ── */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -556,7 +545,6 @@
       letter-spacing: 0.04em;
     }
 
-    /* ── GITHUB BANNER ── */
     .github-banner {
       display: flex;
       align-items: center;
@@ -594,19 +582,147 @@
       color: var(--text-muted);
     }
 
-    /* ── MOTIVATION ── */
-    .motivation-card {
+    .dl-group {
+      margin-bottom: 36px;
+    }
+
+    .dl-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .dl-group-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--teal);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .dl-group-title::after {
+      content: '';
+      flex: 1;
+      height: 0.5px;
+      background: rgba(45,212,191,0.15);
+    }
+
+    .downloads-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 10px;
+    }
+
+    .download-card {
+      background: var(--surface2);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .download-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(139,92,246,0.1);
+    }
+
+    .download-card:active {
+      transform: translateY(0);
+    }
+
+    .download-card.job-offer {
+      border-left: 2px solid rgba(45,212,191,0.3);
+    }
+
+    .download-card.job-offer:hover {
+      border-left-color: var(--teal);
+    }
+
+    .dl-icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--purple-dim);
+      border: 0.5px solid var(--border-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .download-card.job-offer .dl-icon-wrap {
+      background: rgba(45,212,191,0.08);
+      border-color: rgba(45,212,191,0.25);
+    }
+
+    .dl-icon-wrap svg {
+      width: 20px;
+      height: 20px;
+      color: var(--purple-light);
+    }
+
+    .download-card.job-offer .dl-icon-wrap svg {
+      color: var(--teal);
+    }
+
+    .dl-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .dl-filename {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.4;
+      margin-bottom: 3px;
+      word-break: break-word;
+    }
+
+    .dl-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    .dl-arrow {
+      width: 18px;
+      height: 18px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .download-card:hover .dl-arrow {
+      color: var(--purple-light);
+      transform: translateY(2px);
+    }
+
+    .download-card.job-offer:hover .dl-arrow {
+      color: var(--teal);
+    }
+
+    .contact-card {
       max-width: 760px;
       margin: 0 auto;
       background: var(--surface2);
       border: 0.5px solid rgba(139,92,246,0.2);
       border-radius: 14px;
-      padding: 40px 44px;
+      padding: 44px;
       position: relative;
       overflow: hidden;
     }
 
-    .motivation-card::before {
+    .contact-card::before {
       content: '';
       position: absolute;
       top: 0;
@@ -616,59 +732,95 @@
       background: linear-gradient(90deg, var(--purple), var(--purple-light), transparent);
     }
 
-    .motivation-card::after {
-      content: '\201C';
-      position: absolute;
-      top: -10px;
-      right: 28px;
-      font-size: 120px;
-      color: rgba(139,92,246,0.08);
-      font-family: Georgia, serif;
-      line-height: 1;
-      pointer-events: none;
-    }
-
-    .motivation-greeting {
+    .contact-intro {
       font-size: 13px;
       color: var(--text-muted);
-      margin-bottom: 20px;
+      margin-bottom: 32px;
+      letter-spacing: 0.04em;
     }
 
-    .motivation-body {
-      font-size: 15px;
-      font-weight: 300;
-      color: var(--text-secondary);
-      line-height: 1.9;
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 28px;
     }
 
-    .motivation-body p { margin-bottom: 16px; }
-    .motivation-body p:last-child { margin-bottom: 0; }
-
-    .motivation-sig {
-      margin-top: 28px;
-      padding-top: 20px;
-      border-top: 0.5px solid var(--border);
-      font-size: 14px;
-      color: var(--text-primary);
-      font-weight: 500;
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
     }
 
-    .motivation-sig span {
-      display: block;
-      font-size: 12px;
+    .contact-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
       color: var(--text-muted);
-      font-weight: 300;
-      margin-top: 3px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
-    /* ── FOOTER ── */
+    .contact-value {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+
+    .contact-value a {
+      color: var(--purple-light);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .contact-value a:hover {
+      color: #c4b5fd;
+    }
+
+    .contact-divider {
+      grid-column: 1 / -1;
+      height: 0.5px;
+      background: var(--border);
+      margin: 8px 0;
+    }
+
+    .contact-closing {
+      grid-column: 1 / -1;
+      margin-top: 8px;
+    }
+
+    .contact-closing p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    .contact-closing .sig {
+      margin-top: 16px;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .contact-highlight {
+      margin-top: 20px;
+      padding: 16px 20px;
+      background: var(--purple-dim);
+      border: 0.5px solid var(--border-accent);
+      border-radius: 10px;
+      font-size: 14px;
+      color: var(--purple-light);
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
     footer {
       padding: 40px 6%;
       border-top: 0.5px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: gap;
+      flex-wrap: wrap;
       gap: 20px;
     }
 
@@ -689,12 +841,53 @@
       text-decoration: none;
     }
 
-    .footer-right {
+    .footer-downloads {
       display: flex;
-      gap: 10px;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
-    /* ── RESPONSIVE ── */
+    .footer-dl-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.15s, background 0.15s, border-color 0.15s;
+      border: 0.5px solid rgba(255,255,255,0.12);
+      background: transparent;
+      color: var(--text-secondary);
+    }
+
+    .footer-dl-btn:hover {
+      transform: translateY(-1px);
+      border-color: var(--border-accent);
+      color: var(--purple-light);
+    }
+
+    .footer-dl-btn.primary-dl {
+      background: var(--purple);
+      color: #fff;
+      border-color: var(--purple);
+    }
+
+    .footer-dl-btn.primary-dl:hover {
+      background: var(--purple-light);
+      border-color: var(--purple-light);
+    }
+
+    .footer-dl-btn svg {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+    }
+
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .hero { padding: 90px 5% 50px; }
@@ -702,77 +895,64 @@
       section { padding: 56px 5%; }
       .about-grid { grid-template-columns: 1fr; }
       .about-photo { width: 120px; height: 120px; font-size: 36px; }
-      .motivation-card { padding: 28px 24px; }
+      .downloads-grid { grid-template-columns: 1fr; }
+      .contact-card { padding: 28px 24px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 20px; }
       footer { flex-direction: column; text-align: center; }
+      .footer-downloads { justify-content: center; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ── NAV ── -->
   <nav>
     <div class="logo">{ I·H }</div>
     <ul class="nav-links">
       <li><a href="#about">Über mich</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projekte</a></li>
+      <li><a href="#downloads">Downloads</a></li>
       <li><a href="#experience">Werdegang</a></li>
-      <li><a href="#motivation">Motivation</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
     </ul>
   </nav>
 
-  <!-- ── HERO ── -->
   <header class="hero">
     <div class="hero-bg-grid"></div>
     <div class="hero-glow"></div>
     <div class="hero-content">
       <div class="hero-badge">
         <div class="badge-dot"></div>
-        Offen für neue Möglichkeiten · Allgäu, Deutschland
+        Offen für neue Möglichkeiten · Nürnberg, Deutschland
       </div>
-      <h1>Ignacio<br><strong>Henriquez elvergalarga</strong></h1>
-      <p class="hero-subtitle">// Ing. Arbeitssicherheit · Mechaniker · Zukünftiger Entwickler</p>
+      <h1>Ignacio<br><strong>Henriquez</strong></h1>
+      <p class="hero-subtitle">// B.Sc. HSE Ingenieur · Systemdenker · Zukünftiger Entwickler</p>
       <p class="hero-desc">
-        Problemlöser mit 10+ Jahren Erfahrung in der deutschen Arbeitswelt. Analytisches Denken aus dem Ingenieurswesen — bereit, Systeme im Code statt in der Werkstatt zu reparieren.
+        Analytischer Denker mit Ingenieurshintergrund und internationaler Berufserfahrung. Gewohnt, komplexe Systeme zu analysieren und strukturierte Lösungen zu entwickeln — jetzt bereit, diese Kompetenz in die Softwareentwicklung einzubringen.
       </p>
       <div class="hero-actions">
-
-        <!-- Descarga Bildungsangebot -->
-        <a href="public/Bildungsangebot.pdf" download class="btn btn-primary">
+        <a href="#downloads" class="btn btn-primary">
           <svg class="btn-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M8 1v9M5 7l3 3 3-3M2 12v1a1 1 0 001 1h10a1 1 0 001-1v-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          Bildungsangebot
+          Alle Dokumente herunterladen
         </a>
-
-        <!-- Descarga CV -->
-        <a href="public/CV_Ignacio_Henriquez.pdf" download class="btn btn-outline">
-          <svg class="btn-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 1v9M5 7l3 3 3-3M2 12v1a1 1 0 001 1h10a1 1 0 001-1v-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          Lebenslauf (CV)
-        </a>
-
-        <!-- Scroll a motivación -->
-        <a href="#motivation" class="btn btn-ghost">Bewerbung lesen →</a>
-
+        <a href="#kontakt" class="btn btn-outline">Kontakt aufnehmen →</a>
       </div>
     </div>
   </header>
 
-  <!-- ── STATS ── -->
   <div class="stats-row">
     <div class="stat">
-      <div class="stat-num">5+</div>
-      <div class="stat-label">Jahre in DE</div>
+      <div class="stat-num">B.Sc.</div>
+      <div class="stat-label">HSE Ingenieur (Fachkraft für Arbeitssicherheit</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">Jahre Berufserf.</div>
     </div>
     <div class="stat">
       <div class="stat-num">3</div>
       <div class="stat-label">Sprachen</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">B.Sc.</div>
-      <div class="stat-label">Ingenieurswesen</div>
     </div>
     <div class="stat">
       <div class="stat-num">100%</div>
@@ -787,12 +967,11 @@
       <div class="section-line"></div>
     </div>
     <div class="about-grid">
-      <!-- Reemplaza con <img src="public/foto.jpg" alt="Ignacio Henriquez"> cuando tengas la foto -->
       <div class="about-photo">🧑‍💻</div>
       <div class="about-text">
         <h3>Hallo, ich bin Ignacio.</h3>
-        <p>Ich lebe seit 2018 in Deutschland und spreche fließend Spanisch, Deutsch und Englisch. Meine bisherige Laufbahn war geprägt von Vielseitigkeit, Präzision und Verantwortung — als Ingenieur, Mechaniker und in der Logistik.</p>
-        <p>Seit einiger Zeit habe ich meine Leidenschaft für Technologie entdeckt. Ich bin fasziniert davon, wie Code reale Probleme lösen kann — ähnlich wie bei mechanischen Reparaturen, aber mit unbegrenzten Möglichkeiten.</p>
+        <p>In Chile habe ich Arbeitssicherheit und Umweltschutz (HSE) studiert und als Ingenieur an verschiedenen Projekten gearbeitet — von Risikobewertungen in industriellen Anlagen bis zur Umsetzung von Sicherheitsstandards in Bauprojekten. Das hat mir ein solides Fundament in analytischem Denken, Systemanalyse und strukturierter Problemlösung gegeben.</p>
+        <p>Als ich 2018 nach Deutschland kam, lag mein Fokus darauf, die Sprache zu lernen und mich in ein neues Land zu integrieren. Diese Zeit hat mir viel Disziplin und Anpassungsfähigkeit gebracht. Jetzt möchte ich einen weiteren Schritt gehen und neue Fähigkeiten entwickeln — insbesondere in der Softwareentwicklung. Ich bin überzeugt, dass mein ingenieurwissenschaftliches Denken eine starke Basis dafür ist.</p>
       </div>
     </div>
   </section>
@@ -806,18 +985,26 @@
     <div class="skills-grid">
       <div class="skill-card">
         <div class="skill-top">
-          <div class="skill-name">Problemlösung & Diagnose</div>
+          <div class="skill-name">Systemanalytisches Denken</div>
           <div class="skill-pct">90%</div>
         </div>
-        <div class="skill-desc">Als Kfz-Mechaniker und Fahrradtechniker: Systeme analysieren, Fehler finden, Lösungen implementieren.</div>
+        <div class="skill-desc">Aus dem Ingenieurstudium: Komplexe Systeme zerlegen, Ursache-Wirkungs-Ketten erkennen, strukturierte Lösungen entwickeln.</div>
         <div class="skill-bar"><div class="skill-fill" style="width:90%; background: linear-gradient(90deg, #7c3aed, #a78bfa);"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-top">
+          <div class="skill-name">Logik & Algorithmen</div>
+          <div class="skill-pct">40%</div>
+        </div>
+        <div class="skill-desc">Logische Strukturen, Bedingungsanalyse, Abläufe formalisieren. Basis aus Mathematik und Ingenieurwissenschaften, wachsend durch Programmierpraxis.</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:40%; background: linear-gradient(90deg, #0d9488, #2dd4bf);"></div></div>
       </div>
       <div class="skill-card">
         <div class="skill-top">
           <div class="skill-name">HTML · CSS · JavaScript</div>
           <div class="skill-pct">35%</div>
         </div>
-        <div class="skill-desc">Grundkenntnisse im Web-Frontend. Lernender Status — wachsend durch Kurs und Praxis.</div>
+        <div class="skill-desc">Grundkenntnisse im Web-Frontend. Lernender Status — wachsend durch Kurs und Praxisprojekte.</div>
         <div class="skill-bar"><div class="skill-fill" style="width:35%; background: linear-gradient(90deg, #0d9488, #2dd4bf);"></div></div>
       </div>
       <div class="skill-card">
@@ -825,8 +1012,32 @@
           <div class="skill-name">Python</div>
           <div class="skill-pct">30%</div>
         </div>
-        <div class="skill-desc">Logische Strukturen, einfache Skripte. Vertraut mit analytischem Denken aus dem Ingenieurstudium.</div>
+        <div class="skill-desc">Skripting, Datenstrukturen, automatisierte Abläufe. Analytisches Denken aus dem Ingenieurstudium als Fundament.</div>
         <div class="skill-bar"><div class="skill-fill" style="width:30%; background: linear-gradient(90deg, #0d9488, #2dd4bf);"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-top">
+          <div class="skill-name">Risikomanagement & QA</div>
+          <div class="skill-pct">85%</div>
+        </div>
+        <div class="skill-desc">B.Sc. HSE: Systematische Fehleranalyse, Qualitätssicherung, Risikobewertung — direkt übertragbar auf Software-QA und Testing.</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:85%; background: linear-gradient(90deg, #7c3aed, #a78bfa);"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-top">
+          <div class="skill-name">Technische Dokumentation</div>
+          <div class="skill-pct">80%</div>
+        </div>
+        <div class="skill-desc">Strukturierte Berichte, Prozessdokumentation, Sicherheitsprotokolle aus Ingenieurspraxis — Grundlage für saubere Code-Dokumentation.</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:80%; background: linear-gradient(90deg, #d97706, #fbbf24);"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-top">
+          <div class="skill-name">Prozessoptimierung</div>
+          <div class="skill-pct">75%</div>
+        </div>
+        <div class="skill-desc">Abläufe analysieren, Engpässe identifizieren, effizientere Lösungen implementieren — aus Ingenieurs- und Berufserfahrung.</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:75%; background: linear-gradient(90deg, #7c3aed, #a78bfa);"></div></div>
       </div>
       <div class="skill-card">
         <div class="skill-top">
@@ -836,21 +1047,171 @@
         <div class="skill-desc">Spanisch (Muttersprache), Deutsch B1, Englisch B1. Effektive Kommunikation in internationalen Teams.</div>
         <div class="skill-bar"><div class="skill-fill" style="width:75%; background: linear-gradient(90deg, #d97706, #fbbf24);"></div></div>
       </div>
-      <div class="skill-card">
-        <div class="skill-top">
-          <div class="skill-name">Sicherheitstechnik</div>
-          <div class="skill-pct">85%</div>
-        </div>
-        <div class="skill-desc">B.Sc. Arbeitssicherheit, Risikomanagement, technische Analyse — übertragbar auf Software-Qualitätssicherung.</div>
-        <div class="skill-bar"><div class="skill-fill" style="width:85%; background: linear-gradient(90deg, #7c3aed, #a78bfa);"></div></div>
+    </div>
+  </section>
+
+  <!-- ── DOWNLOADS ── -->
+  <section id="downloads">
+    <div class="section-header">
+      <span class="section-tag">03 · Dokumente</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="dl-group">
+      <div class="dl-group-title">Bewerbungsunterlagen</div>
+      <div class="downloads-grid">
+
+        <a href="public/Bildungsangebot_81526A-000825.pdf" download="Bildungsangebot - 81526A-000825 - Ignacio Henriquez 18.05.pdf" class="download-card">
+          <div class="dl-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="dl-info">
+            <div class="dl-filename">Bildungsangebot - 81526A-000825 - Ignacio Henriquez 18.05</div>
+            <div class="dl-meta">PDF · Bildungsangebot</div>
+          </div>
+          <svg class="dl-arrow" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10h8M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <a href="public/Bildungsangebot_81526-001455.pdf" download="Bildungsangebot - 81526-001455 - Ignacio Henriquez 20.07.pdf" class="download-card">
+          <div class="dl-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="dl-info">
+            <div class="dl-filename">Bildungsangebot - 81526-001455 - Ignacio Henriquez 20.07</div>
+            <div class="dl-meta">PDF · Bildungsangebot</div>
+          </div>
+          <svg class="dl-arrow" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10h8M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <a href="public/Lebenslauf_Ignacio_Henriquez.pdf" download="Lebenslauf Ignacio Henriquez.pdf" class="download-card">
+          <div class="dl-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="dl-info">
+            <div class="dl-filename">Lebenslauf Ignacio Henriquez</div>
+            <div class="dl-meta">PDF · Lebenslauf</div>
+          </div>
+          <svg class="dl-arrow" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10h8M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <a href="public/Anschreibung_Ignacio_Henriquez.pdf" download="Anschreibung Ignacio Henriquez.pdf" class="download-card">
+          <div class="dl-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="dl-info">
+            <div class="dl-filename">Anschreibung Ignacio Henriquez</div>
+            <div class="dl-meta">PDF · Anschreiben</div>
+          </div>
+          <svg class="dl-arrow" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10h8M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <a href="public/Curriculum-SEAI_DE.pdf" download="Curriculum-SEAI_DE.pdf" class="download-card">
+          <div class="dl-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="dl-info">
+            <div class="dl-filename">Curriculum-SEAI_DE</div>
+            <div class="dl-meta">PDF · Lebenslauf (spanisch)</div>
+          </div>
+          <svg class="dl-arrow" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10h8M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
       </div>
-      <div class="skill-card">
-        <div class="skill-top">
-          <div class="skill-name">Technische Dokumentation</div>
-          <div class="skill-pct">80%</div>
-        </div>
-        <div class="skill-desc">Wartungsberichte, Sicherheitsprotkolle, strukturierte Dokumentation aus Ingenieurspraxis.</div>
-        <div class="skill-bar"><div class="skill-fill" style="width:80%; background: linear-gradient(90deg, #d97706, #fbbf24);"></div></div>
+    </div>
+
+    <div class="dl-group">
+      <div class="dl-group-title">JobAngebote</div>
+      <div class="downloads-grid">
+
+        <a href="public/Job_Junior_Software_Developer_NOVO.pdf" download="(Junior) Software Developer (m_w_d) bei Firma NOVO.pdf" class="download-card job-offer">
+          <div class="dl-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="dl-info">
+            <div class="dl-filename">(Junior) Software Developer (m_w_d) bei Firma NOVO</div>
+            <div class="dl-meta">PDF · Jobangebot</div>
+          </div>
+          <svg class="dl-arrow" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10h8M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <a href="public/Job_PixelMechanics_Junior_Requirements_Engineer.pdf" download="PixelMechanics - Junior Requirements Engineer.pdf" class="download-card job-offer">
+          <div class="dl-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="dl-info">
+            <div class="dl-filename">PixelMechanics - Junior Requirements Engineer</div>
+            <div class="dl-meta">PDF · Jobangebot</div>
+          </div>
+          <svg class="dl-arrow" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10h8M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <a href="public/Job_Software_Developer_ERP_Jako_AG.pdf" download="Software Developer (m_w_d) ERP - Job bei der Firma Jako AG in Mulfingen.pdf" class="download-card job-offer">
+          <div class="dl-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="dl-info">
+            <div class="dl-filename">Software Developer (m_w_d) ERP - Job bei der Firma Jako AG in Mulfingen</div>
+            <div class="dl-meta">PDF · Jobangebot</div>
+          </div>
+          <svg class="dl-arrow" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10h8M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <a href="public/Job_Software_Engineer.pdf" download="Software Engineer (w_m_d).pdf" class="download-card job-offer">
+          <div class="dl-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="dl-info">
+            <div class="dl-filename">Software Engineer (w_m_d)</div>
+            <div class="dl-meta">PDF · Jobangebot</div>
+          </div>
+          <svg class="dl-arrow" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10h8M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
       </div>
     </div>
   </section>
@@ -858,37 +1219,44 @@
   <!-- ── EXPERIENCE ── -->
   <section id="experience">
     <div class="section-header">
-      <span class="section-tag">03 · Berufserfahrung</span>
+      <span class="section-tag">04 · Werdegang</span>
       <div class="section-line"></div>
     </div>
     <div class="timeline">
       <div class="tl-item">
         <div class="tl-dot"></div>
         <div class="tl-date">2024 – Heute</div>
-        <div class="tl-title">Fahrrad- & Scooter-Mechaniker</div>
-        <div class="tl-company">Lime · Berlin / Allgäu</div>
-        <div class="tl-desc">Technische Wartung und Fehlerdiagnose an elektronischen Komponenten. Optimierung von Wartungsprozessen und eigenverantwortliches Arbeiten im Außendienst.</div>
+        <div class="tl-title">Mitarbeiter im Skigebiet</div>
+        <div class="tl-company">Skiresort · Allgäu</div>
+        <div class="tl-desc">Technische Wartung und Betrieb von liftanlagen und Infrastruktur im Skigebiet. Verantwortungsbewusster Einsatz unter winterlichen Bedingungen, Teamarbeit und zuverlässige Einhaltung der Sicherheitsvorgaben.</div>
       </div>
       <div class="tl-item">
         <div class="tl-dot"></div>
-        <div class="tl-date">2023 – 2024</div>
-        <div class="tl-title">Lift-Maschinist & Wartung</div>
-        <div class="tl-company">Schwarzenlift & Gletscheralp</div>
-        <div class="tl-desc">Verantwortung für Sicherheit und Wartung technischer Anlagen. Zuverlässiges, präzises Arbeiten unter Druck und in extremen Wetterbedingungen.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-date">2018 – 2023</div>
+        <div class="tl-date">2019 – 2023</div>
         <div class="tl-title">Logistik & Operations</div>
         <div class="tl-company">Facturee GmbH & Flaschenpost · Berlin</div>
-        <div class="tl-desc">Effizientes Arbeiten in schnellem Umfeld, Teamfähigkeit und Deutschkenntnisse täglich in der Praxis angewendet. Integration in die deutsche Arbeitswelt.</div>
+        <div class="tl-desc">Tätigkeit in der Logistik bei Facturee und Flaschenpost in Berlin. Effizientes Arbeiten in schnellen Umgebungen, Teamfähigkeit und tägliche Anwendung der deutschen Sprache in der Praxis.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2018 – 2019</div>
+        <div class="tl-title">Sprachkurs & Integration</div>
+        <div class="tl-company">Deutschland</div>
+        <div class="tl-desc">Intensiver Deutschunterricht und Einarbeitung in die deutsche Arbeitswelt. Fokus auf Spracherwerb, kulturelle Integration und Vorbereitung auf den deutschen Arbeitsmarkt.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2015 – 2018</div>
+        <div class="tl-title">HSE Ingenieur</div>
+        <div class="tl-company">Verschiedene Projekte · Chile</div>
+        <div class="tl-desc">Arbeit als Arbeitssicherheitsingenieur an unterschiedlichen Industrieprojekten. Durchführung von Risikobewertungen, Implementierung von Sicherheitsstandards, Erstellung von Gefährdungsbeurteilungen und Koordination mit Projektteams.</div>
       </div>
       <div class="tl-item">
         <div class="tl-dot teal"></div>
         <div class="tl-date teal">2010 – 2015</div>
-        <div class="tl-title">B.Sc. Arbeitssicherheit</div>
-        <div class="tl-company">Universidad Federico Santa María · Chile</div>
-        <div class="tl-desc">Ingenieurwissenschaftliches Denken, Risikomanagement und strukturierte Analyse. Vizepräsident der Studentenvereinigung — Führungs- und Organisationserfahrung.</div>
+        <div class="tl-title">B.Sc. Arbeitssicherheit & Umweltschutz</div>
+        <div class="tl-company">Universidad Federico Santa María · Valparaíso, Chile</div>
+        <div class="tl-desc">Ingenieursstudium mit Schwerpunkt auf Systemanalyse, Risikomanagement, Fehlerbaumanalyse und statistischer Auswertung. Vizepräsident der Studentenvereinigung — Führungs- und Organisationserfahrung.</div>
       </div>
     </div>
   </section>
@@ -896,37 +1264,33 @@
   <!-- ── PROJECTS ── -->
   <section id="projects">
     <div class="section-header">
-      <span class="section-tag">04 · Projekte</span>
+      <span class="section-tag">05 · Projekte</span>
       <div class="section-line"></div>
     </div>
 
     <div class="projects-grid">
 
-      <!-- Proyecto real 1 -->
       <div class="project-card">
         <div class="project-header">
-          <div class="project-emoji">🛴</div>
-          <!-- Reemplaza # con la URL real del repo cuando esté listo -->
+          <div class="project-emoji">📊</div>
           <a href="#" class="project-link coming-soon">github · soon</a>
         </div>
-        <div class="project-name">Scooter-Status Tracker</div>
-        <div class="project-desc">Skript zur Verwaltung des Reparaturstatus von E-Scootern. Inspiriert durch die Arbeit bei Lime — Wartungsprozesse als Datenstruktur gedacht.</div>
+        <div class="project-name">Datenanalyse & Visualisierung</div>
+        <div class="project-desc">Python-Skript zur Analyse von Wartungsdaten. Systematische Auswertung von Fehlerhäufigkeiten und Trendanalyse — ingenieurwissenschaftliche Methodik angewandt auf Daten.</div>
         <div class="project-tags">
           <span class="tag">Python</span>
+          <span class="tag">Datenanalyse</span>
           <span class="tag">Logik</span>
-          <span class="tag">CLI</span>
         </div>
       </div>
 
-      <!-- Proyecto real 2 -->
       <div class="project-card">
         <div class="project-header">
           <div class="project-emoji">🛡️</div>
-          <!-- Reemplaza # con la URL real del repo cuando esté listo -->
           <a href="#" class="project-link coming-soon">github · soon</a>
         </div>
         <div class="project-name">Sicherheits-Checkliste Web</div>
-        <div class="project-desc">Digitale Arbeitssicherheits-Checkliste mit Web-Oberfläche. Kombination aus Ingenieurfachwissen und Frontend-Entwicklung.</div>
+        <div class="project-desc">Digitale Arbeitssicherheits-Checkliste mit Web-Oberfläche. Kombination aus Ingenieurfachwissen und Frontend-Entwicklung — Bedienerführung und Zustandslogik.</div>
         <div class="project-tags">
           <span class="tag">HTML</span>
           <span class="tag">CSS</span>
@@ -934,7 +1298,6 @@
         </div>
       </div>
 
-      <!-- Placeholder para proyecto futuro -->
       <div class="project-card placeholder">
         <div class="project-header">
           <div class="project-emoji">⚙️</div>
@@ -949,7 +1312,6 @@
 
     </div>
 
-    <!-- GitHub Banner -->
     <div class="github-banner">
       <div class="github-banner-left">
         <svg class="github-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -957,33 +1319,59 @@
         </svg>
         <div class="github-banner-text">
           <div class="title">Alle Projekte auf GitHub</div>
-          <!-- Reemplaza la URL con el perfil real de GitHub de Ignacio -->
           <div class="sub">github.com/ignacio-henriquez &nbsp;·&nbsp; Wird während des Kurses befüllt</div>
         </div>
       </div>
-      <!-- Reemplaza href con la URL real de GitHub -->
       <a href="https://github.com/ignacio-henriquez" target="_blank" rel="noopener" class="btn btn-ghost">
         GitHub besuchen →
       </a>
     </div>
   </section>
 
-  <!-- ── MOTIVATION ── -->
-  <section id="motivation">
+  <!-- ── KONTAKT ── -->
+  <section id="kontakt">
     <div class="section-header">
-      <span class="section-tag">05 · Motivationsschreiben</span>
+      <span class="section-tag">06 · Kontakt</span>
       <div class="section-line"></div>
     </div>
-    <div class="motivation-card">
-      <p class="motivation-greeting">Sehr geehrte Damen und Herren,</p>
-      <div class="motivation-body">
-        <p>Mein Weg in die Softwareentwicklung ist nicht der typische eines Informatikers — aber ich glaube, dass genau das meine Stärke ist. Meine Erfahrung als Mechaniker und Ingenieur hat mir beigebracht, wie Systeme funktionieren und wie man strukturiert Probleme löst. Ich sehe Code nicht als reinen Text, sondern als Werkzeug, um Abläufe zu optimieren — genauso wie ich es bei mechanischen Reparaturen getan habe.</p>
-        <p>Ich lebe seit mehreren Jahren in Deutschland, bin integriert und verfüge über die notwendige Disziplin, um diesen beruflichen Wechsel erfolgreich zu meistern. Die Digitalisierung fasziniert mich, und ich bin bereit, hart zu arbeiten, um von einem "Problemlöser in der Werkstatt" zu einem "Problemlöser im Code" zu werden.</p>
-        <p>Ich freue mich auf die Möglichkeit, in Ihrem Kurs meine Fähigkeiten zu erweitern und aktiv beizutragen.</p>
-      </div>
-      <div class="motivation-sig">
-        Ignacio Henriquez
-        <span>Buchenberg / Allgäu · Ignacio.Henriquezp22@gmail.com · +49 176 74231056</span>
+    <div class="contact-card">
+      <p class="contact-intro">// So erreichen Sie mich</p>
+      <div class="contact-grid">
+
+        <div class="contact-item">
+          <div class="contact-label">E-Mail</div>
+          <div class="contact-value">
+            <a href="mailto:Ignacio.Henriquezp22@gmail.com">Ignacio.Henriquezp22@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-label">Telefon</div>
+          <div class="contact-value">
+            <a href="tel:+4917674231056">+49 176 74231056</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-label">Standort</div>
+          <div class="contact-value">Nürnberg, Bayern</div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-label">Sprachen</div>
+          <div class="contact-value">DE · ES · EN</div>
+        </div>
+
+        <div class="contact-divider"></div>
+
+        <div class="contact-closing">
+          <p>Ich freue mich auf Ihre Nachricht — sei es für eine Zusammenarbeit, einen Kursplatz oder einfach um Kennenzulernen. Antworten Sie gerne auf Deutsch, Spanisch oder Englisch.</p>
+          <div class="sig">Ignacio Henriquez</div>
+          <div class="contact-highlight">
+            Ich würde mich sehr freuen, einen Bildungsschein zu erhalten, um meine Weiterbildung in der Softwareentwicklung zu realisieren und diesen wichtigen nächsten Schritt in meiner beruflichen Laufbahn zu gehen.
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -994,17 +1382,34 @@
       <div class="name">Ignacio Henriquez</div>
       <div class="contact">
         <a href="mailto:Ignacio.Henriquezp22@gmail.com">Ignacio.Henriquezp22@gmail.com</a>
-        &nbsp;·&nbsp; +49 176 74231056 &nbsp;·&nbsp; Buchenberg, Allgäu
+        &nbsp;·&nbsp; +49 176 74231056 &nbsp;·&nbsp; Nürnberg, Bayern
       </div>
     </div>
-    <div class="footer-right">
-      <a href="public/CV_Ignacio_Henriquez.pdf" download class="btn btn-outline" style="font-size:12px; padding:8px 16px;">↓ CV</a>
-      <a href="public/Bildungsangebot.pdf" download class="btn btn-primary" style="font-size:12px; padding:8px 16px;">↓ Bildungsangebot</a>
+    <div class="footer-downloads">
+      <a href="public/Lebenslauf_Ignacio_Henriquez.pdf" download="Lebenslauf Ignacio Henriquez.pdf" class="footer-dl-btn primary-dl">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1v9M5 7l3 3 3-3M2 12v1a1 1 0 001 1h10a1 1 0 001-1v-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Lebenslauf
+      </a>
+      <a href="public/Anschreibung_Ignacio_Henriquez.pdf" download="Anschreibung Ignacio Henriquez.pdf" class="footer-dl-btn">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1v9M5 7l3 3 3-3M2 12v1a1 1 0 001 1h10a1 1 0 001-1v-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Anschreibung
+      </a>
+      <a href="public/Curriculum-SEAI_DE.pdf" download="Curriculum-SEAI_DE.pdf" class="footer-dl-btn">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1v9M5 7l3 3 3-3M2 12v1a1 1 0 001 1h10a1 1 0 001-1v-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Curriculum-SEAI
+      </a>
+      <a href="public/Bildungsangebot_81526A-000825.pdf" download="Bildungsangebot - 81526A-000825 - Ignacio Henriquez 18.05.pdf" class="footer-dl-btn">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1v9M5 7l3 3 3-3M2 12v1a1 1 0 001 1h10a1 1 0 001-1v-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Angebot 18.05
+      </a>
+      <a href="public/Bildungsangebot_81526-001455.pdf" download="Bildungsangebot - 81526-001455 - Ignacio Henriquez 20.07.pdf" class="footer-dl-btn">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1v9M5 7l3 3 3-3M2 12v1a1 1 0 001 1h10a1 1 0 001-1v-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Angebot 20.07
+      </a>
     </div>
   </footer>
 
   <script>
-    // Smooth scroll para anclas
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const target = document.querySelector(a.getAttribute('href'));
@@ -1012,7 +1417,6 @@
       });
     });
 
-    // Nav activo al hacer scroll
     const sections = document.querySelectorAll('section[id], header[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
     const observer = new IntersectionObserver(entries => {
